@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title> <%= pageTitle %> </title>
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+</head>
+
+<body>
+    
+    <%- include("includes/navbar.ejs")%>
+    <div class="container">
+        <div class="row" id="row">
+            <div class="col-md-12">
+                <form class="form-horizontal" name="ergo-form" action="/ergo/create" method="POST">
+                    <div class="form-group col-sm-3 mb-3">
+                        <label for="titlos">titlos</label>
+                        <input type="text" class="form-control" name="titlos" placeholder="Enter titlos">
+                    </div>
+                    <div class="form-group col-sm-3 mb-3">
+                        <label for="perilipsi">perilipsi</label>
+                        <input type="text" class="form-control" name="perilipsi" placeholder="Enter perilipsi">
+                    </div>
+                    <div class="form-group col-sm-3 mb-3">
+                        <label for="imer_enarksis">imer_enarksis</label>
+                        <input type="text" class="form-control" name="imer_enarksis" placeholder="Enter imer_enarksis">
+                    </div>
+                    <div class="form-group col-sm-3 mb-3">
+                        <label for="imer_liksis">imer_liksis</label>
+                        <input type="text" class="form-control" name="imer_liksis" placeholder="Enter imer_liksis">
+                    </div>
+                    <div class="form-group col-sm-3 mb-3">
+                        <label for="upeu_afm">upeu_afm</label>
+                        <input type="text" class="form-control" name="upeu_afm" placeholder="Enter upeu_afm">
+                    </div>
+                    <div class="form-group col-sm-3 mb-3">
+                        <label for="aksiol_afm">aksiol_afm</label>
+                        <input type="text" class="form-control" name="aksiol_afm" placeholder="Enter aksiol_afm">
+                    </div>
+                    <div class="form-group col-sm-3 mb-3">
+                        <label for="vathmos">vathmos</label>
+                        <input type="text" class="form-control" name="vathmos" placeholder="Enter vathmos">
+                    </div>
+                    <div class="form-group col-sm-3 mb-3">
+                        <label for="imer_aksiol">imer_aksiol</label>
+                        <input type="text" class="form-control" name="imer_aksiol" placeholder="Enter imer_aksiol">
+                    </div>
+                    <div class="form-group col-sm-3 mb-3">
+                        <label for="stel_afm">stel_afm</label>
+                        <input type="text" class="form-control" name="stel_afm" placeholder="Enter stel_afm">
+                    </div>
+                    <div class="form-group col-sm-3 mb-3">
+                        <label for="org_sunt">org_sunt</label>
+                        <input type="text" class="form-control" name="org_sunt" placeholder="Enter org_sunt">
+                    </div>
+                    <div class="form-group col-sm-3 mb-3">
+                        <label for="prog_titlos">prog_titlos</label>
+                        <input type="text" class="form-control" name="prog_titlos" placeholder="Enter prog_titlos">
+                    </div>
+                    <div class="form-group col-sm-3 mb-3">
+                        <label for="poso_epixor">poso_epixor</label>
+                        <input type="text" class="form-control" name="poso_epixor" placeholder="Enter poso_epixor">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-submit-custom">Submit</button>
+                </form>
+        </div>
+    </div>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            toastr.options = {
+                "closeButton": true,
+                "positionClass": "toast-bottom-right",
+                "preventDuplicates": false
+            };
+            /* In order to access variables sent to ejs file to script you must Parse them to string */
+            /* then to parse them back to JSON */
+            let messages = '<%- JSON.stringify(messages) %>';
+            messages = JSON.parse(messages);
+            messages.forEach(({
+                type,
+                value
+            }) => {
+                switch (type) {
+                    case 'error':
+                        toastr.error(value)
+                        break;
+                    case 'success':
+                        toastr.success(value)
+                        break;
+                    case 'warning':
+                        toastr.warning(value)
+                        break;
+                    default:
+                        toastr.info(value)
+                        break;
+                }
+            });
+        })
+    </script>
+</body>
+
+</html>

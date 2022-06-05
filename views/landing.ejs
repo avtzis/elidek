@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title> <%= pageTitle %> </title>
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+</head>
+
+<body>
+    
+    <%- include("includes/navbar.ejs")%>
+
+    <div class="container" id="row-container">
+        <div class="row" id="row">
+            <div class="col-md-4">
+                <div class="card" id="card-container-layout">
+                    <div class="card-body" id="card">
+                        <h4 class="card-title">View ereunites</h4>
+                        <p class="card-text" id="paragraph">Simple Query to database to show all students</p>
+                        <a class="btn btn-primary" id="show-btn" href="/ereunitis">Show</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" id="card-container-layout">
+                    <div class="card-body" id="card">
+                        <h4 class="card-title">ΠΡΟΕΠΙΣΚΟΠΙΣΗ ΕΡΓΩΝ</h4>
+                        <p class="card-text" id="paragraph">Simple Query to database to show all students</p>
+                        <a class="btn btn-primary" id="show-btn" href="/ergo">Show</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" id="card-container-layout">
+                    <div class="card-body" id="card">
+                        <h4 class="card-title">ΔΙΕΥΘΥΝΣΕΙΣ ΕΛΙΔΕΚ</h4>
+                        <p class="card-text" id="paragraph">Simple Query to database to show all students</p>
+                        <a class="btn btn-primary" id="show-btn" href="/dieuthinsi">Show</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" id="card-container-layout">
+                    <div class="card-body" id="card">
+                        <h4 class="card-title">ΕΠΙΣΤΗΜΟΝΙΚΑ ΠΕΔΙΑ</h4>
+                        <p class="card-text" id="paragraph">Simple Query to database to show all students</p>
+                        <a class="btn btn-primary" id="show-btn" href="/pedio">Show</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" id="card-container-layout">
+                    <div class="card-body" id="card">
+                        <h4 class="card-title">ΟΡΓΑΝΙΣΜΟΙ</h4>
+                        <p class="card-text" id="paragraph">Simple Query to database to show all students</p>
+                        <a class="btn btn-primary" id="show-btn" href="/organismos">Show</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" id="card-container-layout">
+                    <div class="card-body" id="card">
+                        <h4 class="card-title">ΠΑΡΑΔΟΤΕΑ</h4>
+                        <p class="card-text" id="paragraph">Simple Query to database to show all students</p>
+                        <a class="btn btn-primary" id="show-btn" href="/paradoteo">Show</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" id="card-container-layout">
+                    <div class="card-body" id="card">
+                        <h4 class="card-title">ΠΡΟΓΡΑΜΜΑΤΑ</h4>
+                        <p class="card-text" id="paragraph">Simple Query to database to show all students</p>
+                        <a class="btn btn-primary" id="show-btn" href="/programma">Show</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" id="card-container-layout">
+                    <div class="card-body" id="card">
+                        <h4 class="card-title">ΣΤΕΛΕΧΗ</h4>
+                        <p class="card-text" id="paragraph">Simple Query to database to show all students</p>
+                        <a class="btn btn-primary" id="show-btn" href="/stelexos">Show</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" id="card-container-layout">
+                    <div class="card-body" id="card">
+                        <h4 class="card-title">ζητιυμενο 2 - 1η οψη</h4>
+                        <p class="card-text" id="paragraph">Simple Query to database to show all students</p>
+                        <a class="btn btn-primary" id="show-btn" href="/z2">Show</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" id="card-container-layout">
+                    <div class="card-body" id="card">
+                        <h4 class="card-title">ζητιυμενο 2 - 2η οψη</h4>
+                        <p class="card-text" id="paragraph">Simple Query to database to show all students</p>
+                        <a class="btn btn-primary" id="show-btn" href="/z22">Show</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" id="card-container-layout">
+                    <div class="card-body" id="card">
+                        <h4 class="card-title">ζητιυμενο 3</h4>
+                        <p class="card-text" id="paragraph">Simple Query to database to show all students</p>
+                        <form id="pedio-form">
+                            <label for="pedio-select">ΠΕΔΙΟ:</label>
+                            <select id="pedio-select" name="id" form="pedio-form">
+                                <% fields.forEach((pedio, _) => { %>
+                                <option value="<%= pedio.id %>"><%= pedio.id + ' - ' + pedio.ονομα %></option>
+                                <% }) %>
+                            </select> </br></br>
+                        </form>
+                        <button type="submit" form="pedio-form" class="btn btn-primary" id="id-button" onclick="something(this)">Show</a>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" id="card-container-layout">
+                    <div class="card-body" id="card">
+                        <h4 class="card-title">ζητιυμενο 4</h4>
+                        <p class="card-text" id="paragraph">Simple Query to database to show all students</p>
+                        <a class="btn btn-primary" id="show-btn" href="/z4">Show</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" id="card-container-layout">
+                    <div class="card-body" id="card">
+                        <h4 class="card-title">ζητιυμενο 5</h4>
+                        <p class="card-text" id="paragraph">Simple Query to database to show all students</p>
+                        <a class="btn btn-primary" id="show-btn" href="/z5">Show</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" id="card-container-layout">
+                    <div class="card-body" id="card">
+                        <h4 class="card-title">ζητιυμενο 6</h4>
+                        <p class="card-text" id="paragraph">Simple Query to database to show all students</p>
+                        <a class="btn btn-primary" id="show-btn" href="/z6">Show</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" id="card-container-layout">
+                    <div class="card-body" id="card">
+                        <h4 class="card-title">ζητιυμενο 7</h4>
+                        <p class="card-text" id="paragraph">Simple Query to database to show all students</p>
+                        <a class="btn btn-primary" id="show-btn" href="/z7">Show</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" id="card-container-layout">
+                    <div class="card-body" id="card">
+                        <h4 class="card-title">ζητιυμενο 8</h4>
+                        <p class="card-text" id="paragraph">Simple Query to database to show all students</p>
+                        <a class="btn btn-primary" id="show-btn" href="/z8">Show</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function something(row) {
+            let e = document.getElementById("pedio-form");
+            let strUser = e.options[e.selectedIndex].text;
+            let id = strUser.substring(0, 1);
+            console.log(id);
+            document.getElementById("id-button").action = "/z3/" + val1;
+            document.getElementById("id-button").method = "GET";
+        }
+    </script>
+
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            toastr.options = {
+                "closeButton": true,
+                "positionClass": "toast-bottom-right",
+                "preventDuplicates": false
+            };
+            /* In order to access variables sent to ejs file to script you must Parse them to string */
+            /* then to parse them back to JSON */
+            let messages = '<%- JSON.stringify(messages) %>';
+            messages = JSON.parse(messages);
+            messages.forEach(({
+                type,
+                value
+            }) => {
+                switch (type) {
+                    case 'error':
+                        toastr.error(value)
+                        break;
+                    case 'success':
+                        toastr.success(value)
+                        break;
+                    case 'warning':
+                        toastr.warning(value)
+                        break;
+                    default:
+                        toastr.info(value)
+                        break;
+                }
+            });
+        })
+    </script>
+
+</body>
+
+</html>
