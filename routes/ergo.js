@@ -8,5 +8,6 @@ router.post('/create', ergoController.postErgo);
 router.get('/creation-page', ergoController.getCreateErgo);
 router.post('/update/:id', ergoController.postUpdateErgo);
 router.post('/delete/:id', ergoController.postDeleteErgo);
+router.get('/ereu/:id', ergoController.getEreu);
 
 module.exports = router;

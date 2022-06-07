@@ -24,6 +24,7 @@
             <div class="modal-body">
                 <form id="modal-form">
                     <div style="text-align: center;">
+                        <input type="text" name="id" id="id" readonly></br>
                         <input type="text" name="ergo_titlos" id="ergo_titlos"></br>
                         <input type="text" name="titlos" id="titlos"></br>
                         <input type="text" name="perilipsi" id="perilipsi"></br>
@@ -66,6 +67,7 @@
                                         <th>ΠΕΡΙΛΗΨΗ</th>
                                         <th>ΗΜΕΡΟΜΗΝΙΑ ΠΑΡΑΔΟΣΗΣ</th>
                                         <th></th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -78,7 +80,7 @@
                                             <td><%= paradoteo.ημερομηνια_παραδοσης %></td>
                                             <td>
                                                 <a type="button" onclick="setModalFields(this)"
-                                                    data-toggle="modal" data-ergo_titlos="<%= paradoteo.ergo_id %>" 
+                                                    data-toggle="modal" data-id="<%= paradoteo.id %>" data-ergo_titlos="<%= paradoteo.ergo_id %>" 
                                                     data-titlos="<%= paradoteo.τιτλος %>" data-perilipsi="<%= paradoteo.περιληψη %>" data-imer="<%= paradoteo.ημερομηνια_παραδοσης %>"
                                                     data-target="#editModal">
                                                     <i class="fa fa-edit"></i>
@@ -103,6 +105,7 @@
 
     <script>
         function setModalFields(row) {
+            document.getElementById("id").value = row.dataset.id;
             document.getElementById("ergo_titlos").value = row.dataset.ergo_titlos;
             document.getElementById("titlos").value = row.dataset.titlos;
             document.getElementById("perilipsi").value = row.dataset.perilipsi;

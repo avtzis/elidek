@@ -29,7 +29,7 @@ exports.postDieuthinsi = (req, res, next) => {
         .then(() => {
             pool.releaseConnection(conn);
             req.flash('messages', { type: 'success', value: "Successfully added a new Διεύθυνση!" })
-            res.redirect('/dieuthinsi/creation-page');
+            res.redirect('/dieuthinsi');
         })
         .catch(err => {
             req.flash('messages', { type: 'error', value: "Something went wrong, Διεύθυνση could not be added." })
@@ -58,9 +58,9 @@ exports.postUpdateDieuthinsi = (req, res, next) => {
 
     /* create the connection, execute query, flash respective message and redirect to grades route */
     pool.getConnection((err, conn) => {
-        var sqlQuery = `UPDATE dieuthinsi SET id = ?, πολη = ? WHERE id = ${og_id}`;
+        var sqlQuery = `UPDATE dieuthinsi SET πολη = ? WHERE id = ${og_id}`;
 
-        conn.promise().query(sqlQuery, [id])
+        conn.promise().query(sqlQuery, [poli])
         .then(() => {
             pool.releaseConnection(conn);
             req.flash('messages', { type: 'success', value: "Successfully updated Διεύθυνση!" })

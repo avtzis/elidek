@@ -24,6 +24,7 @@
             <div class="modal-body">
                 <form id="modal-form">
                     <div style="text-align: center;">
+                        <input type="text" name="id" id="id" readonly></br>
                         <input type="text" name="onoma" id="onoma"></br>
                         <input type="text" name="epwnumo" id="epwnumo"></br>
                         <input type="text" name="fulo" id="fulo"></br>
@@ -68,6 +69,7 @@
                                         <th>ΗΛΙΚΙΑ</th>
                                         <th>ΑΝΑΓΝΩΡΙΣΤΙΚΟΣ ΑΡΙΘΜΟΣ ΔΙΕΥΘΥΝΣΗΣ ΕΛΙΔΕΚ</th>
                                         <th></th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -82,7 +84,7 @@
                                             <td><%= stelexos.dieu_id %></td>
                                             <td>
                                                 <a type="button" onclick="setModalFields(this)"
-                                                    data-toggle="modal"
+                                                    data-toggle="modal" data-id="<%= stelexos.id %>"
                                                     data-onoma="<%= stelexos.ονομα %>" data-epwnumo="<%= stelexos.επωνυμο %>"
                                                     data-fulo="<%= stelexos.φυλο %>" data-imer_gennisis="<%= stelexos.ημερομηνια_γεννησης %>" 
                                                     data-anag_ar="<%= stelexos.dieu_id %>" 
@@ -109,6 +111,7 @@
 
     <script>
         function setModalFields(row) {
+            document.getElementById("id").value = row.dataset.id;
             document.getElementById("onoma").value = row.dataset.onoma;
             document.getElementById("epwnumo").value = row.dataset.epwnumo;
             document.getElementById("fulo").value = row.dataset.fulo;

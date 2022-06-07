@@ -24,6 +24,7 @@
             <div class="modal-body">
                 <form id="modal-form">
                     <div style="text-align: center;">
+                        <input type="text" name="id" id="id" readonly></br>
                         <input type="text" name="titlos" id="titlos"></br>
                         <input type="text" name="anag_ar" id="anag_ar"></br>
                     </div>
@@ -62,6 +63,7 @@
                                         <th>ΤΙΤΛΟΣ</th>
                                         <th>ΑΝΑΓΝΩΡΙΣΤΙΚΟΣ ΑΡΙΘΜΟΣ ΔΙΕΥΘΥΝΣΗΣ ΕΛΙΔΕΚ</th>
                                         <th></th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -72,7 +74,7 @@
                                             <td><%= programma.dieu_id %></td>
                                             <td>
                                                 <a type="button" onclick="setModalFields(this)"
-                                                    data-toggle="modal" data-titlos="<%= programma.τιτλος %>" 
+                                                    data-toggle="modal" data-id="<%= programma.id %>" data-titlos="<%= programma.τιτλος %>" 
                                                     data-anag_ar="<%= programma.dieu_id %>" 
                                                     data-target="#editModal">
                                                     <i class="fa fa-edit"></i>
@@ -97,6 +99,7 @@
 
     <script>
         function setModalFields(row) {
+            document.getElementById("id").value = row.dataset.id;
             document.getElementById("titlos").value = row.dataset.titlos;
             document.getElementById("anag_ar").value = row.dataset.anag_ar;
 

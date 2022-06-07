@@ -24,7 +24,7 @@
             <div class="modal-body">
                 <form id="modal-form">
                     <div style="text-align: center;">
-                        <input type="text" name="id" id="id"></br>
+                        <input type="text" name="id" id="id" readonly></br>
                         <input type="text" name="titlos" id="titlos"></br>
                         <input type="text" name="perilipsi" id="perilipsi"></br>
                         <input type="text" name="imer_enarksis" id="imer_enarksis"></br>
@@ -85,6 +85,8 @@
                                         <th>id ΠΡΟΓΡΑΜΜΑΤΟΣ</th>
                                         <th>ΠΟΣΟ ΕΠΙΧΟΡΗΓΗΣΗΣ</th>
                                         <th></th>
+                                        <th></th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -105,6 +107,11 @@
                                             <td><%= ergo.org_id %></td>
                                             <td><%= ergo.prog_id %></td>
                                             <td><%= ergo.ποσο_επιχορηγησης %></td>
+                                            <form method="GET" action="/ergo/ereu/<%= ergo.id %>">
+                                                <td> 
+                                                    <button style="all: unset; cursor: pointer;" type="submit"><i class="fa fa-plus"></i></button>
+                                                </td>
+                                            </form>
                                             <td>
                                                 <a type="button" onclick="setModalFields(this)"
                                                     data-toggle="modal" data-id="<%= ergo.id %>" data-titlos="<%= ergo.τιτλος %>" 

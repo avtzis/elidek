@@ -31,7 +31,7 @@ exports.postProgramma = (req, res, next) => {
         .then(() => {
             pool.releaseConnection(conn);
             req.flash('messages', { type: 'success', value: "Successfully added a new Πρόγραμμα!" })
-            res.redirect('/programma/creation-page');
+            res.redirect('/programma');
         })
         .catch(err => {
             req.flash('messages', { type: 'error', value: "Something went wrong, Πρόγραμμα could not be added." })

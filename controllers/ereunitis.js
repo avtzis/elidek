@@ -36,7 +36,7 @@ exports.postEreuniti = (req, res, next) => {
         .then(() => {
             pool.releaseConnection(conn);
             req.flash('messages', { type: 'success', value: "Successfully added a new Ερευνητής!" })
-            res.redirect('/ereunitis/creation-page');
+            res.redirect('/ereunitis');
         })
         .catch(err => {
             req.flash('messages', { type: 'error', value: "Something went wrong, Ερευνητής could not be added." })
@@ -71,7 +71,7 @@ exports.postUpdateEreuniti = (req, res, next) => {
 
     /* create the connection, execute query, flash respective message and redirect to grades route */
     pool.getConnection((err, conn) => {
-        var sqlQuery = `UPDATE ereunitis SET id = ?, ονομα = ?, επωνυμο = ?, φυλο = ?, ημερομηνια_γεννησης = ?, org_id = ?, οργανισμος_ημερομηνια_εναρξης = ? WHERE ereunitis.id = ${og_id}`;
+        var sqlQuery = `UPDATE ereunitis SET ονομα = ?, επωνυμο = ?, φυλο = ?, ημερομηνια_γεννησης = ?, org_id = ?, οργανισμος_ημερομηνια_εναρξης = ? WHERE ereunitis.id = ${og_id}`;
 
         conn.promise().query(sqlQuery, [onoma, epwnumo, fulo, imer_gennisis, org_suntom, org_imer_enarksis])
         .then(() => {

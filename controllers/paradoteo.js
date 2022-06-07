@@ -28,13 +28,13 @@ exports.postParadoteo = (req, res, next) => {
 
     /* create the connection, execute query, flash respective message and redirect to grades route */
     pool.getConnection((err, conn) => {
-        var sqlQuery = `INSERT INTO paradoteo (id, ergo_id, τιτλος, περιληψη, ημερομηνια_παραδοσης) VALUES (NULL, ?, ?, ?)`;
+        var sqlQuery = `INSERT INTO paradoteo (id, ergo_id, τιτλος, περιληψη, ημερομηνια_παραδοσης) VALUES (NULL, ?, ?, ?, ?)`;
 
         conn.promise().query(sqlQuery, [ergo_titlos, titlos, perilipsi, imer])
         .then(() => {
             pool.releaseConnection(conn);
             req.flash('messages', { type: 'success', value: "Successfully added a new παραδοτέο!" })
-            res.redirect('/paradoteo/creation-page');
+            res.redirect('/paradoteo');
         })
         .catch(err => {
             req.flash('messages', { type: 'error', value: "Something went wrong, παραδοτέο could not be added." })

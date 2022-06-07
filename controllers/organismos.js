@@ -27,9 +27,9 @@ exports.postOrganismo = (req, res, next) => {
     const tk = req.body.tk;
     const poli = req.body.poli;
     const tupos = req.body.tupos;
-    const idia_kef = req.body.idia_kef;
-    const proup_upour = req.body.proup_upour;
-    const proup_idiwt = req.body.proup_idiwt;
+    const idia_kef = req.body.idia_kef == ''? 0: req.body.idia_kef;
+    const proup_upour = req.body.proup_upour == ''? 0: req.body.proup_upour;
+    const proup_idiwt = req.body.proup_idiwt == ''? 0: req.body.proup_idiwt;
 
     /* create the connection, execute query, flash respective message and redirect to grades route */
     pool.getConnection((err, conn) => {
@@ -39,7 +39,7 @@ exports.postOrganismo = (req, res, next) => {
         .then(() => {
             pool.releaseConnection(conn);
             req.flash('messages', { type: 'success', value: "Successfully added a new Οργανισμός!" })
-            res.redirect('/organismos/creation-page');
+            res.redirect('/organismos');
         })
         .catch(err => {
             req.flash('messages', { type: 'error', value: "Something went wrong, Οργανισμός could not be added." })
@@ -77,7 +77,7 @@ exports.postUpdateOrganismo = (req, res, next) => {
 
     /* create the connection, execute query, flash respective message and redirect to grades route */
     pool.getConnection((err, conn) => {
-        var sqlQuery = `UPDATE organismos SET συντομογραφια = ?, ονομα = ?, οδος = ?, αριθμος = ?, ταχ_κωδικας = ?, πολη = ?, τυπος = ?, ιδια_κεφαλαια = ?, προυπ_υπουργειο = ?, προυπ_ιδιωτ WHERE id = ${og_id}`;
+        var sqlQuery = `UPDATE organismos SET συντομογραφια = ?, ονομα = ?, οδος = ?, αριθμος = ?, ταχ_κωδικας = ?, πολη = ?, τυπος = ?, ιδια_κεφαλαια = ?, προυπ_υπουργειο = ?, προυπ_ιδιωτ = ? WHERE id = ${og_id}`;
 
         conn.promise().query(sqlQuery, [sunt, onoma, odos, arithmos, tk, poli, tupos, idia_kef, proup_upour, proup_idiwt])
         .then(() => {

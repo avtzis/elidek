@@ -24,6 +24,7 @@
             <div class="modal-body">
                 <form id="modal-form">
                     <div style="text-align: center;">
+                        <input type="text" name="id" id="id" readonly></br>
                         <input type="text" name="sunt" id="sunt"></br>
                         <input type="text" name="onoma" id="onoma"></br>
                         <input type="text" name="odos" id="odos"></br>
@@ -78,6 +79,7 @@
                                         <th>ΠΡΟΥΠΟΛΟΓΙΣΜΟΣ ΑΠΟ ΥΠΟΥΡΓΕΙΟ ΠΑΙΔΕΙΑΣ</th>
                                         <th>ΠΡΟΥΠΟΛΟΓΙΣΜΟΣ ΑΠΟ ΙΔΙΩΤΙΚΕΣ ΔΡΑΣΕΙΣ</th>
                                         <th></th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -97,6 +99,7 @@
                                             <td>
                                                 <a type="button" onclick="setModalFields(this)"
                                                     data-toggle="modal" 
+                                                    data-id="<%= organismos.id %>" 
                                                     data-sunt="<%= organismos.συντομογραφια %>" 
                                                     data-onoma="<%= organismos.ονομα %>" 
                                                     data-odos="<%= organismos.οδος %>"
@@ -130,6 +133,7 @@
 
     <script>
         function setModalFields(row) {
+            document.getElementById("id").value = row.dataset.id;
             document.getElementById("sunt").value = row.dataset.sunt;
             document.getElementById("onoma").value = row.dataset.onoma;
             document.getElementById("odos").value = row.dataset.odos;

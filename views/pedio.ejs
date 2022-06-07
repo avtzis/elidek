@@ -24,6 +24,7 @@
             <div class="modal-body">
                 <form id="modal-form">
                     <div style="text-align: center;">
+                        <input type="text" name="id" id="id" readonly></br>
                         <input type="text" name="onoma" id="onoma"></br>
                     </div>
                 </form>
@@ -60,6 +61,7 @@
                                         <th>id</th>
                                         <th>ΟΝΟΜΑ</th>
                                         <th></th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -70,6 +72,7 @@
                                             <td>
                                                 <a type="button" onclick="setModalFields(this)"
                                                     data-toggle="modal"
+                                                    data-id="<%= pedio.id %>" 
                                                     data-onoma="<%= pedio.ονομα %>" 
                                                     data-target="#editModal">
                                                     <i class="fa fa-edit"></i>
@@ -94,6 +97,7 @@
 
     <script>
         function setModalFields(row) {
+            document.getElementById("id").value = row.dataset.id;
             document.getElementById("onoma").value = row.dataset.onoma;
 
             document.getElementById("modal-form").action = "/pedio/update/" + row.dataset.id;

@@ -35,7 +35,7 @@ exports.postStelexo = (req, res, next) => {
         .then(() => {
             pool.releaseConnection(conn);
             req.flash('messages', { type: 'success', value: "Successfully added a new Στέλεχος!" })
-            res.redirect('/stelexos/creation-page');
+            res.redirect('/stelexos');
         })
         .catch(err => {
             req.flash('messages', { type: 'error', value: "Something went wrong, Στέλεχος could not be added." })

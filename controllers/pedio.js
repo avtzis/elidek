@@ -30,7 +30,7 @@ exports.postPedio = (req, res, next) => {
         .then(() => {
             pool.releaseConnection(conn);
             req.flash('messages', { type: 'success', value: "Successfully added a new Πεδίο!" })
-            res.redirect('/pedio/creation-page');
+            res.redirect('/pedio');
         })
         .catch(err => {
             req.flash('messages', { type: 'error', value: "Something went wrong, Πεδίο could not be added." })

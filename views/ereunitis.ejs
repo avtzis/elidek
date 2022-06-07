@@ -24,7 +24,7 @@
             <div class="modal-body">
                 <form id="modal-form">
                     <div style="text-align: center;">
-                        <input type="text" name="id" id="id"></br>
+                        <input type="text" name="id" id="id" readonly></br>
                         <input type="text" name="onoma" id="onoma"></br>
                         <input type="text" name="epwnumo" id="epwnumo"></br>
                         <input type="text" name="fulo" id="fulo"></br>
@@ -88,7 +88,7 @@
                                             <td><%= ereunitis.οργανισμος_ημερομηνια_εναρξης %></td>
                                             <td>
                                                 <a type="button" onclick="setModalFields(this)"
-                                                    data-toggle="modal" data-afm="<%= ereunitis.id %>" 
+                                                    data-toggle="modal" data-id="<%= ereunitis.id %>" 
                                                     data-onoma="<%= ereunitis.ονομα %>" data-epwnumo="<%= ereunitis.επωνυμο %>"
                                                     data-fulo="<%= ereunitis.φυλο %>" data-imer_gennisis="<%= ereunitis.ημερομηνια_γεννησης %>" 
                                                     data-org_suntom="<%= ereunitis.org_id %>" 
